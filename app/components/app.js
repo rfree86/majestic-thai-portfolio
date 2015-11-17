@@ -7,26 +7,30 @@ const App = React.createClass({
   mixins: [BackboneMixin],
 
   componentWillMount() {
-    store.fetchRecipes();
+    store.fetchEntree();
   },
 
   // sets up the state of this component
   getModels() {
     return {
-      recipes: store.getRecipes()
+      entree: store.getEntree()
     }
   },
 
   render() {
 
-    var recipes = this.state.recipes;
+    var entrees = this.state.entree;
 
     return (
       <div>
-        <h1>Hello</h1>
+        <h1>Menu Items</h1>
         <ul>
-          {recipes.map((recipe) => {
-              return <li>{recipe.name}</li>
+          <li><h1>Entrees</h1></li>
+          {entrees.map((e) => {
+              return (<li key={e.objectId}>{e.title} <br/>
+              <p>{e.description}  <span>{e.price}</span></p>
+
+              </li>)
           })}
         </ul>
       </div>

@@ -3,11 +3,9 @@ import $ from 'jquery';
 $.ajaxSetup({
   beforeSend(xhr, options) {
     if(options.url.match(/api.parse.com/)) {
-      xhr.setRequestHeader('X-Parse-Application-Id', 'xR0Bhh88xR6hkxv6q8p1YUJaJYBXQM3dA01XusCc');
-      xhr.setRequestHeader('X-Parse-REST-API-Key', 'f0OGjDzDvjj4V4XFlayTeGV406RRlIo0a6APSEBI');
-      if(localStorage.getItem('parse-session-token')) {
-        xhr.setRequestHeader('X-Parse-Session-Token', localStorage.getItem('parse-session-token'));
-      }
+      xhr.setRequestHeader('X-Parse-Application-Id', 'YzuFDxy3Cq6E69tCvgkB0t3Zzbt0MoIZWQ6J56s9');
+      xhr.setRequestHeader('X-Parse-REST-API-Key', 'nAtfdK3VtK2ecY302h2MRRAW1QHZV1T1OOglkVFP');
+      
     }
   }
 });

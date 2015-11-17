@@ -1,32 +1,26 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
-import RecipesCollection from './models/recipes-collection';
+import EntreeCollection from './models/entree-collection';
 
-let recipes = new RecipesCollection();
+let entree = new EntreeCollection();
 
 
 const Store = _.extend({}, Backbone.Events, {
   initialize() {
-    this.listenTo(recipes, 'add remove change',() => {
+    this.listenTo(entree, 'add remove change',() => {
       this.trigger('change');
     });
   },
 
-  getRecipes() {
-    return recipes.toJSON();
+  getEntree() {
+    return entree.toJSON();
   },
 
-  fetchRecipes() {
-    return recipes.fetch();
+  fetchEntree() {
+    return entree.fetch();
   },
 
-  createRecipe(data) {
-    recipes.create(data);
-  }
 });
-
-// get global access to recipes for demonstration/debug
-window.Store = Store;
 
 Store.initialize();
 
