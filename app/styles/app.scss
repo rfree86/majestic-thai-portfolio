@@ -1,5 +1,145 @@
-// @import 'bourbon';
-// @import 'neat';
+@import 'bourbon';
+@import 'neat';
 @import '~normalize.css/normalize.css';
 @import '~font-awesome/scss/font-awesome';
 @import 'foundation';
+$text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+$box-shadow: 1px 1px 1px 1px #22252B;
+
+ul
+ {
+   box-shadow: $box-shadow
+ }
+
+li
+ {
+   list-style: none;
+ }
+
+.outer-container
+ {
+   @include outer-container;
+   position: relative;
+ }
+
+.header
+ {
+   background-image: url('../../public/assets/images/banner1.jpg');
+   background-size: cover;
+   height: 360px;
+ }
+
+
+//menu style
+//entrees
+.entree-picture
+ {
+   background: url('../../public/assets/images/pad_thai_shrimp.jpg') no-repeat center center fixed;
+   background-size: cover;
+   height: 400px;
+
+ }
+
+.entree-title
+ {
+   position: relative;
+   top: 100px;
+   text-align: center;
+   color: white;
+   font-size: 70px;
+   text-shadow: $text-shadow;
+ }
+
+//starters//
+
+.starters-picture
+ {
+   background: url('../../public/assets/images/thai-spring-rolls.jpg')no-repeat center center fixed;
+   background-size: cover;
+   height: 375px;
+
+ }
+
+.starter-title
+ {
+   position: relative;
+   top: 100px;
+   text-align: center;
+   color: white;
+   font-size: 70px;
+   text-shadow: $text-shadow;
+ }
+//
+//soups//
+
+.soup-picture
+ {
+   background: url('../../public/assets/images/tom-kha-gai-2.jpg') no-repeat center center fixed;
+   background-size: cover;
+   height: 400px;
+
+ }
+
+.soup-title
+ {
+   position: relative;
+   top: 100px;
+   text-align: center;
+   color: white;
+   font-size: 70px;
+   text-shadow: $text-shadow;
+ }
+
+.menu-list
+ {
+   @include span-columns(10);
+ }
+
+.menu-title
+ {
+   text-align: center;
+ }
+
+.food-title
+ {
+   text-align: center;
+ }
+
+.description
+ {
+   padding-left: 10px;
+ }
+
+.order-button
+ {
+   padding-left: 10px;
+ }
+
+.supersticky
+ {
+   position: fixed;
+   top: 0;
+   right: 10px;
+   width: 250px;
+ }
+
+.order-menu
+ {
+  @include span-columns(2);
+
+   border: 1px solid black;
+   width: 220px;
+
+ }
+
+.order-title
+ {
+   text-align: center;
+   border-bottom: 1px dashed black;
+ }
+
+.order-delete
+ {
+   font-size: 10px;
+   color: red;
+ }
