@@ -43,7 +43,7 @@ const App = React.createClass({
          <ul>
            <li className="entree-picture"><h1 className ="entree-title">Entrees</h1></li>
            {entrees.map((e) => {
-               return (<li key={e.objectId}><h6 className ="food-title">{e.title}</h6>
+               return (<li key={e.objectId}><h4 className ="food-title">{e.title}</h4>
                 <p className ="description">{e.description}  </p>
                 <span className = "order-button"><button className = "success tiny round">Order</button>  <span>${e.price}</span></span>
                 <hr/>
@@ -54,9 +54,9 @@ const App = React.createClass({
          <ul>
            <li className = "starters-picture"><h1 className = "starter-title">Starters</h1></li>
             {starters.map((s) => {
-              return (<li key={s.objectId}>{s.title} <br/>
-               <p>{s.description}  </p>
-               <button className = "success tiny round">Order</button>  <span>${s.price}</span>
+              return (<li key={s.objectId}><h4 className ="food-title">{s.title}</h4>
+               <p className = "description">{s.description}  </p>
+              <span className = "order-button"><button className = "success tiny round">Order</button>  <span>${s.price}</span> </span>
                <hr/>
                </li>)
              })}
@@ -65,9 +65,9 @@ const App = React.createClass({
           <ul>
             <li className = "soup-picture"><h1 className = "soup-title">Soups</h1></li>
               {soups.map((s) => {
-                return (<li key={s.objectId}>{s.title} <br/>
-                <p>{s.description}  </p>
-                <button className = "success tiny round">Order</button> <span>${s.price}</span>
+                return (<li key={s.objectId}><h4 className = "food-title">{s.title}</h4>
+                <p className = "description">{s.description}  </p>
+              <span className = "order-button"><button className = "success tiny round">Order</button> <span>${s.price}</span> </span>
                 <hr/>
             </li>)
                   })}
