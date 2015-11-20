@@ -3,12 +3,14 @@ import Backbone from 'backbone';
 import EntreeCollection from './models/entree-collection';
 import StarterCollection from './models/starters-collection';
 import SoupCollection from './models/soup-collection';
+import OrderCollection from './models/order-collection';
 
 
 
 let entree = new EntreeCollection();
 let starter = new StarterCollection();
 let soup = new SoupCollection();
+let order = new OrderCollection();
 
 
 
@@ -17,6 +19,7 @@ const Store = _.extend({}, Backbone.Events, {
     this.listenTo(entree, 'add remove change',() => {this.trigger('change')});
     this.listenTo(starter, 'add remove change', () => {this.trigger('change')});
     this.listenTo(soup, 'add remove change', () => {this.trigger('change')});
+    this.listenTo(order, 'add change remove', () => {this.trigger('change')});
   },
 
 //Entrees////
@@ -50,6 +53,14 @@ getSoup() {
 fetchSoup() {
   return soup.fetch();
 },
+
+//
+//order list
+
+  addOrder(item) {
+    order.add(item);
+    console.log(order);
+  },
 
 });
 

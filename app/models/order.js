@@ -1,4 +1,4 @@
-var Menu = Backbone.Model.extend({
+var Order = Backbone.Model.extend({
   idAttribute: 'objectId',
   defaults: {
     title: "",
@@ -10,4 +10,4 @@ var Menu = Backbone.Model.extend({
 
 });
 
-export default Menu;
+export default Order;

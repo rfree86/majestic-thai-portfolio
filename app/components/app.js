@@ -7,6 +7,12 @@ const App = React.createClass({
 
   mixins: [BackboneMixin],
 
+  getInitialState() {
+    return {
+      order: []
+    };
+  },
+
   componentWillMount() {
     store.fetchEntree();
     store.fetchStarter();
@@ -20,6 +26,11 @@ const App = React.createClass({
       starter: store.getStarter(),
       soup: store.getSoup(),
     }
+  },
+
+  addToOrder() {
+var order= store.addOrder(this.state.entree);
+
   },
 
   render() {
@@ -45,7 +56,7 @@ const App = React.createClass({
            {entrees.map((e) => {
                return (<li key={e.objectId}><h4 className ="food-title">{e.title}</h4>
                 <p className ="description">{e.description}  </p>
-                <span className = "order-button"><button className = "success tiny round">Order</button>  <span>${e.price}</span></span>
+                <span className = "order-button"><button onClick={this.addToOrder} className = "success tiny round">Order</button>  <span>${e.price}</span></span>
                 <hr/>
                </li>)
            })}
