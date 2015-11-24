@@ -62,6 +62,10 @@ fetchSoup() {
     console.log(order);
   },
 
+  getOrder() {
+    return order.toJSON();
+  }
+
 });
 
 Store.initialize();

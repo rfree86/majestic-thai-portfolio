@@ -9,9 +9,10 @@ const App = React.createClass({
 
   getInitialState() {
     return {
-      order: []
-    };
+      total: 0
+    }
   },
+
 
   componentWillMount() {
     store.fetchEntree();
@@ -25,12 +26,22 @@ const App = React.createClass({
       entree: store.getEntree(),
       starter: store.getStarter(),
       soup: store.getSoup(),
+      order: store.getOrder(),
     }
   },
 
-  addToOrder() {
-var order= store.addOrder(this.state.entree);
+  addToOrder(item) {
+  var order= store.addOrder(item);
+  this.addToTotal(item);
 
+  },
+
+  addToTotal(item) {
+    let subtotal = this.state.total;
+    this.setState({
+      total: subtotal + item.price
+    });
+    console.log(this.state.total);
   },
 
   render() {
@@ -38,6 +49,8 @@ var order= store.addOrder(this.state.entree);
     var entrees = this.state.entree;
     var starters = this.state.starter;
     var soups = this.state.soup;
+    var orders = this.state.order;
+
 
 
     return (
@@ -56,7 +69,7 @@ var order= store.addOrder(this.state.entree);
            {entrees.map((e) => {
                return (<li key={e.objectId}><h4 className ="food-title">{e.title}</h4>
                 <p className ="description">{e.description}  </p>
-                <span className = "order-button"><button onClick={this.addToOrder} className = "success tiny round">Order</button>  <span>${e.price}</span></span>
+                <span className = "order-button"><button onClick={this.addToOrder.bind(this, e)} className = "success tiny round">Order</button>  <span>${e.price}</span></span>
                 <hr/>
                </li>)
            })}
@@ -67,7 +80,7 @@ var order= store.addOrder(this.state.entree);
             {starters.map((s) => {
               return (<li key={s.objectId}><h4 className ="food-title">{s.title}</h4>
                <p className = "description">{s.description}  </p>
-              <span className = "order-button"><button className = "success tiny round">Order</button>  <span>${s.price}</span> </span>
+              <span className = "order-button"><button onClick={this.addToOrder.bind(this, s)} className = "success tiny round">Order</button>  <span>${s.price}</span> </span>
                <hr/>
                </li>)
              })}
@@ -78,7 +91,7 @@ var order= store.addOrder(this.state.entree);
               {soups.map((s) => {
                 return (<li key={s.objectId}><h4 className = "food-title">{s.title}</h4>
                 <p className = "description">{s.description}  </p>
-              <span className = "order-button"><button className = "success tiny round">Order</button> <span>${s.price}</span> </span>
+              <span className = "order-button"><button onClick={this.addToOrder.bind(this, s)} className = "success tiny round">Order</button> <span>${s.price}</span> </span>
                 <hr/>
             </li>)
                   })}
@@ -91,8 +104,11 @@ var order= store.addOrder(this.state.entree);
             order list
           </h4>
           <ul>
-            <li className = "order-item">food item <i className="fa fa-times-circle"> <span className = "order-delete"> delete</span></i></li>
+            {orders.map((o) => {
+              return (<li key={o.objectId} className = "order-item">{o.title} ${o.price} <i className="fa fa-times-circle"> <span className = "order-delete"> delete</span></i></li>)
+            })}
           </ul>
+          <span> Subtotal = ${this.state.total}</span>
         </div>
         </Sticky>
 
