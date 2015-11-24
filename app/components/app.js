@@ -36,13 +36,28 @@ const App = React.createClass({
 
   },
 
+  removeFromOrder(item) {
+  var order = store.removeOrder(item);
+  this.removeFromTotal(item);
+  },
+
   addToTotal(item) {
     let subtotal = this.state.total;
     this.setState({
       total: subtotal + item.price
     });
-    console.log(this.state.total);
+
   },
+
+  removeFromTotal(item) {
+    let subtotal = this.state.total;
+    let round = subtotal.toFixed(2);
+    this.setState({
+      total: round - item.price
+    });
+  },
+
+
 
   render() {
 
@@ -103,9 +118,9 @@ const App = React.createClass({
           <h4 className = "order-title">
             order list
           </h4>
-          <ul>
+          <ul className = "order-title">
             {orders.map((o) => {
-              return (<li key={o.objectId} className = "order-item">{o.title} ${o.price} <i className="fa fa-times-circle"> <span className = "order-delete"> delete</span></i></li>)
+              return (<li key={o.objectId} className = "order-item">{o.title} ${o.price} <i onClick = {this.removeFromOrder.bind(this, o)} className="fa fa-times-circle"> </i></li>)
             })}
           </ul>
           <span> Subtotal = ${this.state.total}</span>

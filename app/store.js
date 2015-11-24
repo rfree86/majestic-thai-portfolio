@@ -59,6 +59,11 @@ fetchSoup() {
 
   addOrder(item) {
     order.add(item);
+
+  },
+
+  removeOrder(item) {
+    order.remove(item);
     console.log(order);
   },
 
