@@ -28,6 +28,7 @@ li
    background-image: url('../../public/assets/images/banner1.jpg');
    background-size: cover;
    height: 360px;
+   width: 100%;
  }
 
 
@@ -93,12 +94,18 @@ li
 
 .menu-list
  {
-   @include span-columns(10);
+   @include span-columns(9);
+
  }
 
 .menu-title
  {
    text-align: center;
+ }
+
+.menu-ul
+ {
+  background-color: #F5F4F4;
  }
 
 .food-title
@@ -121,7 +128,7 @@ li
    position: fixed;
    float: right;
    top: 0;
-   right: 10px;
+   right: 20px;
 
 
  }
@@ -129,6 +136,7 @@ li
 .order-menu
  {
   @include span-columns(2);
+  @include shift(1);
 background-color: $order-color;
    border: 1px solid black;
    width: 100%;
@@ -139,7 +147,7 @@ background-color: $order-color;
 .order-title
  {
    text-align: center;
-   
+
    box-shadow: none;
  }
 
