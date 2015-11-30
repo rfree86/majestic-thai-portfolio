@@ -42,18 +42,17 @@ const App = React.createClass({
   },
 
   addToTotal(item) {
-    let subtotal = this.state.total;
+    let subtotal = Number(this.state.total);
     this.setState({
-      total: subtotal + item.price
+      total: (subtotal + item.price).toFixed(2)
     });
 
   },
 
   removeFromTotal(item) {
-    let subtotal = this.state.total;
-    let round = subtotal.toFixed(2);
+    let subtotal = Number(this.state.total);
     this.setState({
-      total: round - item.price
+      total: (subtotal - item.price).toFixed(2)
     });
   },
 
@@ -113,14 +112,14 @@ const App = React.createClass({
           </ul>
         </div>
 
-        <Sticky stickyClass="supersticky" stickyStyle ={{}}>
+        <Sticky stickyClass="supersticky" className="order" stickyStyle ={{}}>
         <div className = "order-menu">
           <h4 className = "order-title">
             order list
           </h4>
           <ul className = "order-title">
             {orders.map((o) => {
-              return (<li key={o.objectId} className = "order-item">{o.title} ${o.price} <i onClick = {this.removeFromOrder.bind(this, o)} className="fa fa-times-circle"> </i></li>)
+              return (<li key={o.objectId} className = "order-item">{o.title} ${o.price} <span onClick = {this.removeFromOrder.bind(this, o)}>X</span></li>)
             })}
           </ul>
           <span> Subtotal = ${this.state.total}</span>
