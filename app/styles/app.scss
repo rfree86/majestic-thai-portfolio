@@ -7,6 +7,9 @@ $text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px 
 $box-shadow: 1px 1px 1px 1px #22252B;
 $order-color: rgba(176, 176, 176, .5);
 
+.body, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Slab';
+}
 ul
  {
    box-shadow: $box-shadow
@@ -25,12 +28,46 @@ li
 
 .header
  {
-   background-image: url('../../public/assets/images/banner1.jpg');
+   position: relative;
+   background: url('../../public/assets/images/banner2.jpeg') no-repeat center center fixed;
    background-size: cover;
-   height: 360px;
-   width: 100%;
+   height: 635px;
  }
 
+.overlay {
+  background: rgba(33, 33, 33, .3);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.header-title
+ {
+    text-align: center;
+    font-family: 'Josefin Slab';
+}
+
+.links,
+{
+  box-shadow: none;
+  color: white;
+  text-shadow: $text-shadow;
+  font-size: 2rem;
+  position: absolute;
+  width: 100%;
+
+}
+.link{
+  box-shadow: none;
+  color: white;
+  text-shadow: $text-shadow;
+  font-size: 2rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: white;
+}
 
 //menu style
 //entrees
@@ -96,6 +133,7 @@ li
  {
    @include span-columns(9);
 
+
  }
 
 .menu-title
@@ -127,7 +165,7 @@ li
  {
    position: fixed;
   //  float: right;
-  
+
    top: 0;
    bottom: 0;
    right: 20px;
@@ -137,9 +175,10 @@ li
 
  .order
 {
-  // position: relative;
-  @include span-columns(2);
-  @include shift(1);
+
+  @include span-columns(3);
+  // @include shift(1);
+
 }
 .order-menu
  {

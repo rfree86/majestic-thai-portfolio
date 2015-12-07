@@ -68,17 +68,23 @@ const App = React.createClass({
 
 
     return (
-      <div>
-        <div className = "header">
-          <h1 className = "header-title">Majestic Thai</h1>
-          </div>
-    <div className = "outer-container">
+      <div className="body">
 
+        <div className = "row-column header">
+          <div className="overlay"></div>
+          <h1 className = "header-title">Welcome to Majestic Thai</h1>
+          <ul className="vertical medium-horizontal menu expanded text-center links">
+            <li><a className="link" href="#entree">Entrees</a></li>
+            <li><a className="link" href="#starters">Starters</a></li>
+            <li><a className="link" href="#soups">Soups</a></li>
+          </ul>
+        </div>
+    <div className = "outer-container">
 
        <div className = "menu-list">
          <h1 className = "menu-title">Menu Items</h1>
 
-         <ul className= "menu-ul">
+         <ul id="entree" className= "menu-ul">
            <li className="entree-picture"><h1 className ="entree-title">Entrees</h1></li>
            {entrees.map((e) => {
                return (<li key={e.objectId}><h4 className ="food-title">{e.title}</h4>
@@ -89,7 +95,7 @@ const App = React.createClass({
            })}
          </ul>
 
-         <ul className= "menu-ul">
+         <ul id="starters" className= "menu-ul">
            <li className = "starters-picture"><h1 className = "starter-title">Starters</h1></li>
             {starters.map((s) => {
               return (<li key={s.objectId}><h4 className ="food-title">{s.title}</h4>
@@ -100,8 +106,8 @@ const App = React.createClass({
              })}
          </ul>
 
-          <ul className= "menu-ul">
-            <li className = "soup-picture"><h1 className = "soup-title">Soups</h1></li>
+          <ul id="soups" className= "menu-ul">
+            <li  className = "soup-picture"><h1 className = "soup-title">Soups</h1></li>
               {soups.map((s) => {
                 return (<li key={s.objectId}><h4 className = "food-title">{s.title}</h4>
                 <p className = "description">{s.description}  </p>
