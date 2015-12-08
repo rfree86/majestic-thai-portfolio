@@ -1,5 +1,4 @@
 var Order = Backbone.Model.extend({
-  idAttribute: 'objectId',
   defaults: {
     title: "",
     description: "",

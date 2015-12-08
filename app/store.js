@@ -63,8 +63,9 @@ fetchSoup() {
   },
 
   removeOrder(item) {
-    order.remove(item);
-    console.log(order);
+    var remove = order.findWhere({objectId: item.objectId});
+    order.remove(remove);
+
   },
 
   getOrder() {

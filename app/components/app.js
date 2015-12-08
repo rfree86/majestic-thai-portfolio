@@ -125,7 +125,7 @@ const App = React.createClass({
           </h4>
           <ul className = "order-title">
             {orders.map((o) => {
-              return (<li key={o.objectId} className = "order-item">{o.title} ${o.price} <span onClick = {this.removeFromOrder.bind(this, o)}>X</span></li>)
+              return (<li className = "order-item">{o.title} ${o.price} <span onClick = {this.removeFromOrder.bind(this, o)}>X</span></li>)
             })}
           </ul>
           <span> Subtotal = ${this.state.total}</span>

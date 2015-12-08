@@ -1,7 +1,7 @@
-import Menu from './menu';
+import Order from './order';
 
 var OrderCollection = Backbone.Collection.extend({
-  model: Menu,
+  model: Order,
   comparator: 'price'
 
 });
