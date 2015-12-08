@@ -64,7 +64,7 @@ var webpackConfig = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'url?name=images/[name].[ext]&limit=8192',
+        loader: 'url?name=images/[name].[ext]',
         include: path.resolve(__dirname, 'public', 'assets', 'images')
       },
       {
